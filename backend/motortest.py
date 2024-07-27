@@ -34,7 +34,7 @@ out4BP = 19
 
 
 # init servo
-servoA = PWM(Pin(16))
+servoA = PWM(4)
 servoB = PWM(5)
 servoC = PWM(6)
 servoA.freq(50)
@@ -167,25 +167,3 @@ def rotateServoC(rot):
     """Speed as a decimal 0 to 1"""
     duty = round(9000 * rot)
     servoC.duty_u16(duty)
-
-
-# RUNNING SECTION
-# print("forward")
-# forward(1)
-# sleep(1)
-# print("back")
-# back(1)
-# sleep(1)
-# print("stop")
-# stop()
-
-# print("left")
-# left(1)
-# sleep(1)
-# print("right")
-# right(1)
-# sleep(1)
-# print("stop")
-# stop()
-
-rotateServoA(0.5)
