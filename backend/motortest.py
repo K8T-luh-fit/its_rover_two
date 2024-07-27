@@ -51,22 +51,16 @@ servoB.freq(5000)
 servoA.duty_u16(0)
 servoB.duty_u16(0)
 
-servoAF = Pin(20, Pin.OUT, Pin.PULL_DOWN)
-servoAB = Pin(21, Pin.OUT, Pin.PULL_DOWN)
-
-servoBF = Pin(22, Pin.OUT, Pin.PULL_DOWN)
-servoBB = Pin(23, Pin.OUT, Pin.PULL_DOWN)
-
 
 def forward(self, speed):
     """Speed as a decimal 0 to 1"""
     stop()
     sleep(0.5)
     duty = round(65000 * speed, 0)
-    out1F.duty_u16(speed)
-    out3F.duty_u16(speed)
-    out1B.duty_u16(speed)
-    out3B.duty_u16(speed)
+    out1F.duty_u16(duty)
+    out3F.duty_u16(duty)
+    out1B.duty_u16(duty)
+    out3B.duty_u16(duty)
 
 
 def back(self, speed):
@@ -74,10 +68,10 @@ def back(self, speed):
     stop()
     sleep(0.5)
     duty = round(65000 * speed, 0)
-    out2F.duty_u16(speed)
-    out4F.duty_u16(speed)
-    out2B.duty_u16(speed)
-    out4B.duty_u16(speed)
+    out2F.duty_u16(duty)
+    out4F.duty_u16(duty)
+    out2B.duty_u16(duty)
+    out4B.duty_u16(duty)
 
 
 def left(self, speed):
@@ -85,10 +79,10 @@ def left(self, speed):
     stop()
     sleep(0.5)
     duty = round(65000 * speed, 0)
-    out1F.duty_u16(speed)
-    out3F.duty_u16(speed)
+    out1F.duty_u16(duty)
+    out3F.duty_u16(duty)
     out1B.duty_u16(0)
-    out3B.duty_u16(speed)
+    out3B.duty_u16(duty)
 
 
 def right(self, speed):
@@ -96,15 +90,14 @@ def right(self, speed):
     stop()
     sleep(0.5)
     duty = round(65000 * speed, 0)
-    out2F.duty_u16(speed)
-    out4F.duty_u16(speed)
-    out2B.duty_u16(speed)
-    out4B.duty_u16(speed)
+    out2F.duty_u16(duty)
+    out4F.duty_u16(duty)
+    out2B.duty_u16(duty)
+    out4B.duty_u16(0)
 
 
 def stop(self):
     """Speed as a decimal 0 to 1"""
-    stop()
     sleep(0.5)
     out1F.duty_u16(0)
     out2F.duty_u16(0)
@@ -124,7 +117,7 @@ def stepperAF(self, rot):
 
 
 # back stepper
-def stepperAF(self, rot):
+def stepperBF(self, rot):
     """Move stepper by amount of steps"""
     stepperB.step(rot)
     sleep(0.5)
@@ -136,14 +129,6 @@ def stepperAF(self, rot):
 def rotateServoA(self, speed, time):
     """Speed as a decimal 0 to 1"""
     duty = round(65000 * speed, 0)
-    if duty > 0:
-        servoAB.off()
-        sleep(0.1)
-        servoAF.on()
-    else:
-        servoAF.off()
-        sleep(0.1)
-        servoAB.on()
     servoA.duty_u16(duty)
     sleep(time)
     servoA.duty_u16(0)
@@ -155,14 +140,6 @@ def rotateServoA(self, speed, time):
 def rotateServoB(self, speed, time):
     """Speed as a decimal 0 to 1"""
     duty = round(65000 * speed, 0)
-    if duty > 0:
-        servoBB.off()
-        sleep(0.1)
-        servoBF.on()
-    else:
-        servoBF.off()
-        sleep(0.1)
-        servoBB.on()
     servoB.duty_u16(duty)
     sleep(time)
     servoB.duty_u16(0)
