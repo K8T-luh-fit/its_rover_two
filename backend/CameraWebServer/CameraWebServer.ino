@@ -36,8 +36,8 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char *ssid = "WIFI HERE";
-const char *password = "";
+const char *ssid = "HAck-Project-WiFi-1";
+const char *password = "UCLA.HAcK.2024.Summer";
 
 void startCameraServer();
 void setupLedFlash(int pin);
