@@ -1,6 +1,5 @@
 from machine import Pin, PWM
 from time import sleep
-import temp
 
 # import Stepper
 
@@ -35,12 +34,15 @@ out4BP = 19
 
 
 # init servo
-servoA = PWM(4)
+servoA = PWM(Pin(16))
 servoB = PWM(5)
-servoA.freq(5000)
-servoB.freq(5000)
+servoC = PWM(6)
+servoA.freq(50)
+servoB.freq(50)
+servoC.freq(50)
 servoA.duty_u16(0)
 servoB.duty_u16(0)
+servoC.duty_u16(0)
 
 
 # Driving motors
@@ -139,40 +141,32 @@ def stop():
     setoff(out4B, out4BP)
 
 
-# front stepper
-def stepperAF(rot):
-    """Move stepper by amount of steps"""
-    stepperA.step(rot)
-    sleep(0.5)
-
-
-# back stepper
-def stepperBF(rot):
-    """Move stepper by amount of steps"""
-    stepperB.step(rot)
-    sleep(0.5)
-
-
 # servo A
 
 
-def rotateServoA(speed, time):
+def rotateServoA(rot):
     """Speed as a decimal 0 to 1"""
-    duty = round(65000 * speed, 0)
+    duty = round(9000 * rot)
+    print(duty)
     servoA.duty_u16(duty)
-    sleep(time)
-    servoA.duty_u16(0)
 
 
 # servo B
 
 
-def rotateServoB(speed, time):
+def rotateServoB(rot):
     """Speed as a decimal 0 to 1"""
-    duty = round(65000 * speed, 0)
+    duty = round(9000 * rot)
     servoB.duty_u16(duty)
-    sleep(time)
-    servoB.duty_u16(0)
+
+
+# servo C
+
+
+def rotateServoC(rot):
+    """Speed as a decimal 0 to 1"""
+    duty = round(9000 * rot)
+    servoC.duty_u16(duty)
 
 
 # RUNNING SECTION
@@ -194,5 +188,4 @@ def rotateServoB(speed, time):
 # print("stop")
 # stop()
 
-
-temp.querytemp()
+rotateServoA(0.5)
