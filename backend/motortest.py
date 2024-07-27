@@ -1,5 +1,6 @@
 from machine import Pin, PWM
 from time import sleep
+import Stepper
 
 # init
 
@@ -32,6 +33,14 @@ out1B.duty_u16(0)
 out2B.duty_u16(0)
 out3B.duty_u16(0)
 out4B.duty_u16(0)
+
+
+# init stepper
+stepperA = Stepper(2038, 8, 10, 9, 11)
+stepperA.setSpeed(0)
+
+stepperB = Stepper(2038, 12, 14, 13, 15)
+stepperB.setSpeed(0)
 
 
 def forward(self, speed):
