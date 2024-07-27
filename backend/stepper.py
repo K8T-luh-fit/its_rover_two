@@ -1,7 +1,3 @@
-# Rui Santos & Sara Santos - Random Nerd Tutorials
-# Complete project details at https://RandomNerdTutorials.com/raspberry-pi-pico-stepper-motor-micropython/
-# Forked from: https://github.com/larsks/micropython-stepper-motor/blob/master/motor.py
-
 import machine
 import time
 
