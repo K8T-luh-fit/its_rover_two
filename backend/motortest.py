@@ -1,8 +1,6 @@
 from machine import Pin, PWM
 from time import sleep
 
-# import Stepper
-
 # init
 
 out1F = PWM(0)
@@ -34,15 +32,15 @@ out4BP = 19
 
 
 # init servo
-servoA = PWM(4)
+servoA = PWM(15)
 servoB = PWM(5)
 servoC = PWM(6)
 servoA.freq(50)
 servoB.freq(50)
 servoC.freq(50)
-servoA.duty_u16(0)
-servoB.duty_u16(0)
-servoC.duty_u16(0)
+servoA.duty_ns(0)
+servoB.duty_ns(0)
+servoC.duty_ns(0)
 
 
 # Driving motors
@@ -145,10 +143,8 @@ def stop():
 
 
 def rotateServoA(rot):
-    """Speed as a decimal 0 to 1"""
-    duty = round(9000 * rot)
-    print(duty)
-    servoA.duty_u16(duty)
+    """Between 545 and 2399"""
+    servoA.duty_ns(int(rot * 1000.0))
 
 
 # servo B
@@ -167,3 +163,22 @@ def rotateServoC(rot):
     """Speed as a decimal 0 to 1"""
     duty = round(9000 * rot)
     servoC.duty_u16(duty)
+
+
+while True:
+    rotateServoA(545)
+    sleep(2)
+    rotateServoA(800)
+    sleep(2)
+    rotateServoA(1000)
+    sleep(2)
+    rotateServoA(1250)
+    sleep(2)
+    rotateServoA(1500)
+    sleep(2)
+    rotateServoA(1750)
+    sleep(2)
+    rotateServoA(2000)
+    sleep(2)
+    rotateServoA(2250)
+    sleep(2)

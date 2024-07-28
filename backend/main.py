@@ -1,51 +1,49 @@
-from machine import Pin, PWM
+# Example 1 - Control individual LED
+
+from neopixel import NeoPixel
 from time import sleep
+import random
 
-# init
+numpix = 12
+strip = NeoPixel(numpix, 0, 14, "RGB")
 
-out1F = PWM(0)
-out2F = PWM(16)
-out1F.freq(5000)
-out2F.freq(5000)
+red = (255, 0, 0)
 
-out3F = PWM(1)
-out4F = PWM(17)
-out3F.freq(5000)
-out4F.freq(5000)
+red = (255, 0, 0)
+orange = (255, 50, 0)
+yellow = (255, 100, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+indigo = (100, 0, 90)
+violet = (200, 0, 100)
+colors_rgb = [red, orange, yellow, green, blue, indigo, violet]
 
-out1B = PWM(2)
-out2B = PWM(18)
-out1B.freq(5000)
-out2B.freq(5000)
-
-out3B = PWM(3)
-out4B = PWM(19)
-out3B.freq(5000)
-out4B.freq(5000)
-
-# init
-out1F.duty_u16(0)
-out2F.duty_u16(0)
-out3F.duty_u16(0)
-out4F.duty_u16(0)
-out1B.duty_u16(0)
-out2B.duty_u16(0)
-out3B.duty_u16(0)
-out4B.duty_u16(0)
-
-
-def forward(speed):
-    """Speed as a decimal 0 to 1"""
-    # stop()
-    sleep(0.5)
-    # duty = round(65000 * speed, 0)
-    duty = 64000
-    out1F.duty_u16(duty)
-    out3F.duty_u16(duty)
-    out1B.duty_u16(duty)
-    out3B.duty_u16(duty)
+delay = 0.5
+strip.brightness(42)
+blank = (0, 0, 0)
 
 
 while True:
-    forward(1)
-    sleep(10)
+    strip.set_pixel(
+        random.randint(0, numpix - 1),
+        colors_rgb[random.randint(0, len(colors_rgb) - 1)],
+    )
+    strip.set_pixel(
+        random.randint(0, numpix - 1),
+        colors_rgb[random.randint(0, len(colors_rgb) - 1)],
+    )
+    strip.set_pixel(
+        random.randint(0, numpix - 1),
+        colors_rgb[random.randint(0, len(colors_rgb) - 1)],
+    )
+    strip.set_pixel(
+        random.randint(0, numpix - 1),
+        colors_rgb[random.randint(0, len(colors_rgb) - 1)],
+    )
+    strip.set_pixel(
+        random.randint(0, numpix - 1),
+        colors_rgb[random.randint(0, len(colors_rgb) - 1)],
+    )
+    strip.show()
+    sleep(delay / 1000000)
+    strip.fill((0, 0, 0))

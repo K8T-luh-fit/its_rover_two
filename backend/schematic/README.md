@@ -2,9 +2,10 @@
 Schematic can be viewed at https://www.altium.com/viewer/ \
 Download rover_sch/rover_sch.SchDoc and upload to viewer
 
-![alt text](https://github.com/K8T-luh-fit/its_rover_two/blob/briantan/backend/schematic/images/rover_sch_2.png)
+![alt text](https://github.com/K8T-luh-fit/its_rover_two/blob/briantan/backend/schematic/images/rover_sch_3.png)
 
 ## Log
+7/28/24 2:00AM - Added cameras
 7/27/24 3:00PM - Updated pinout for servos \
 7/26/24 9:40PM - Finished first schematic \
 7/26/24 12:30AM - Uploaded and connected to git
