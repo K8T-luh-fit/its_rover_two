@@ -85,15 +85,3 @@ def moveArm(direction, forearmRot, wristRot):
 #         wristState = 2750 - degree
 #     else:
 #         wristState = 350 + 2400 - degree
-
-initialize()
-
-while True:
-    for i in range(120):
-        moveArm("up", forearmState, wristState)
-        sleep(0.01)
-    sleep(2)
-    for i in range(120):
-        moveArm("down", forearmState, wristState)
-        sleep(0.01)
-    sleep(2)
