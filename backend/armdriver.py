@@ -30,7 +30,7 @@ while True():
     arm.grab("grab", clawState)
     sleep(0.01)
 
-    if ultrasonic.querydistance() < 5:
+    if ultrasonic.querydistance_A() < 5:
         motortest.forward(speed)
         sleep(0.5)
         motortest.stop() 

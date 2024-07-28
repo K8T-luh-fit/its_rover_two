@@ -73,7 +73,7 @@ def forward(speed):
     setoff(out4F, out4FP)
     setoff(out2B, out2BP)
     setoff(out4B, out4BP)
-    sleep(0.5)
+    sleep(0.02)
     duty = round(65000 * speed)
     seton(out1F, out1FP, duty)
     seton(out3F, out3FP, duty)
@@ -87,7 +87,7 @@ def back(speed):
     setoff(out3F, out3FP)
     setoff(out1B, out1BP)
     setoff(out3B, out3BP)
-    sleep(0.5)
+    sleep(0.02)
     duty = round(65000 * speed)
     seton(out2F, out2FP, duty)
     seton(out4F, out4FP, duty)
@@ -102,7 +102,7 @@ def left(speed):
     setoff(out4F, out4FP)
     setoff(out1B, out1BP)
     setoff(out4B, out4BP)
-    sleep(0.5)
+    sleep(0.02)
     duty = round(65000 * speed)
     seton(out2F, out2FP, duty)
     seton(out3F, out3FP, duty)
@@ -117,7 +117,7 @@ def right(speed):
     setoff(out3F, out3FP)
     setoff(out2B, out2BP)
     setoff(out3B, out3BP)
-    sleep(0.5)
+    sleep(0.02)
     duty = round(65000 * speed)
     seton(out1F, out1FP, duty)
     seton(out4F, out4FP, duty)
@@ -137,48 +137,3 @@ def stop():
     setoff(out4F, out4FP)
     setoff(out2B, out2BP)
     setoff(out4B, out4BP)
-
-
-# servo A
-
-
-def rotateServoA(rot):
-    """Between 545 and 2399"""
-    servoA.duty_ns(int(rot * 1000.0))
-
-
-# servo B
-
-
-def rotateServoB(rot):
-    """Speed as a decimal 0 to 1"""
-    duty = round(9000 * rot)
-    servoB.duty_u16(duty)
-
-
-# servo C
-
-
-def rotateServoC(rot):
-    """Speed as a decimal 0 to 1"""
-    duty = round(9000 * rot)
-    servoC.duty_u16(duty)
-
-
-while True:
-    rotateServoA(545)
-    sleep(2)
-    rotateServoA(800)
-    sleep(2)
-    rotateServoA(1000)
-    sleep(2)
-    rotateServoA(1250)
-    sleep(2)
-    rotateServoA(1500)
-    sleep(2)
-    rotateServoA(1750)
-    sleep(2)
-    rotateServoA(2000)
-    sleep(2)
-    rotateServoA(2250)
-    sleep(2)
