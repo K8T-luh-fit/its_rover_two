@@ -5,9 +5,9 @@ forearm = servo.Servo(4)
 wrist = servo.Servo(5)
 claw = servo.Servo(6)
 
-forearmState = 0
-wristState = 2400
-clawState = 0
+forearmState = 360
+wristState = 2380
+clawState = 360
 
 
 def initialize():
@@ -22,36 +22,34 @@ def initialize():
 
 # Servo driving definitions
 def grab(direction, state):
-    """Set rotation between 350 and 2400 steps"""
-    if direction == "grab":
+    """Set direction grab or release"""
+    global clawState
+    if direction == "grab" and clawState < 2360:
         claw.write_us(state + 20)
-    global clawState
-    clawState += 20
-    if direction == "release":
+        clawState += 20
+        print("grabbing")
+    if direction == "release" and clawState > 370:
         claw.write_us(state - 20)
-    global clawState
-    clawState -= 20
+        clawState -= 20
+        print("ungrabbingh")
 
 
 def moveArm(direction, forearmRot, wristRot):
-    """Set rotation between 350 and 2400 steps"""
-    if direction == "up":
-        forearm.write_us(forearmRot + i * 20)
-        wrist.write_us(wristRot - i * 20)
-    if direction == "down":
-        forearm.write_us(forearmRot - i * 20)
-        wrist.write_us(wristRot + i * 20)
-    global clawState
-    clawState -= 20
-
+    """Set direction up or down"""
     global forearmState
     global wristState
-    if direction == "up":
-        forearmState = forearmRot + 20
-        wristState = wristRot - 20
-    elif direction == "down":
-        forearmState = forearmRot - 20
-        wristState = wristRot + 20
+    print(direction, wristState)
+    if direction == "up" and forearmState < 2360:
+        forearm.write_us(forearmRot + 20)
+        wrist.write_us(wristRot - 100)
+        forearmState += 20
+        wristState -= 20
+        print("upping")
+    if direction == "down" and forearmState > 370:
+        forearm.write_us(forearmRot - 20)
+        wrist.write_us(wristRot + 20)
+        forearmState -= 20
+        wristState += 20
 
 
 # FOR TESTING
@@ -87,3 +85,15 @@ def moveArm(direction, forearmRot, wristRot):
 #         wristState = 2750 - degree
 #     else:
 #         wristState = 350 + 2400 - degree
+
+initialize()
+
+while True:
+    for i in range(120):
+        moveArm("up", forearmState, wristState)
+        sleep(0.01)
+    sleep(2)
+    for i in range(120):
+        moveArm("down", forearmState, wristState)
+        sleep(0.01)
+    sleep(2)
