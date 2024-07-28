@@ -1,5 +1,7 @@
 from time import sleep
 from machine import PWM, Pin
+import board
+
 
 # pin = PWM(0)
 # pin.freq(5000)
