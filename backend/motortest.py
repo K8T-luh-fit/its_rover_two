@@ -56,14 +56,14 @@ def seton(pin, number, duty):
 
 
 # init at 5khz
-seton(out1F, out1FP, 0)
-seton(out2F, out2FP, 0)
-seton(out3F, out3FP, 0)
-seton(out4F, out4FP, 0)
-seton(out1B, out1BP, 0)
-seton(out2B, out2BP, 0)
-seton(out3B, out3BP, 0)
-seton(out4B, out4BP, 0)
+setoff(out1F, out1FP)
+setoff(out2F, out2FP)
+setoff(out3F, out3FP)
+setoff(out4F, out4FP)
+setoff(out1B, out1BP)
+setoff(out2B, out2BP)
+setoff(out3B, out3BP)
+setoff(out4B, out4BP)
 
 
 # DRIVING DEFINITIONS
