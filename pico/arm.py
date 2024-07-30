@@ -5,6 +5,7 @@ forearm = servo.Servo(4)
 wrist = servo.Servo(5)
 claw = servo.Servo(6)
 
+#pwm states
 forearmState = 775
 wristState = 775
 clawState = 360

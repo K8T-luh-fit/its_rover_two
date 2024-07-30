@@ -148,6 +148,7 @@ def cb(topic, msg):
         stop()
     
 
+#main function calling subscribe and published messages
 def main():
     arm.initialize()
     
@@ -164,6 +165,7 @@ def main():
         client.subscribe("direction")
         client.subscribe("stop")
         
+#interval loop to not overload sensors
         interval = 2
         lastTime = time.time()
         
