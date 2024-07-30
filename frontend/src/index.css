@@ -7,7 +7,139 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FAECEC;
+}
+
+#logo1{
+  width: 75px;
+  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cameraContent {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
+
+.camTitle{
+  margin-top: 40px;
+}
+
+#camPic {
+  width: 700px;
+}
+
+.cameraFrame {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  margin: 20px 0;
+}
+
+.cameraFrame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+.sensorData {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  align-items: center;
+  background: #FAECEC;
+  padding: 20px;
+}
+
+.sensorTitle {
+  text-align: center;
+  width: 100%; /* Ensure the title spans the full width of the container */
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  justify-content: center;
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Ensure the content container spans the full width */
+  gap: 20px;
+}
+
+.sensorTags {
+  margin-left: 100px;
+  margin-top: 100px;
+  flex: 1;
+}
+
+.nerdPic{
+  flex:1;
+}
+
+#nerd {
+  width: 100%;
+  max-width: 500px;
+}
+
+.log{
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  justify-content: center;
+  align-items: center;
+}
+
+#pic9 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.photoGallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FAECEC;
+  padding: 20px;
+}
+
+.docContent{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.photoTitle {
+  text-align: center;
+  width: 100%; /* Ensure the title spans the full width of the container */
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  grid-template-rows: repeat(2, auto); /* Two rows */
+  gap: 20px; /* Adjust the spacing between photos */
+  width: 100%; /* Ensure the grid spans the full width of the container */
+}
+
+.photos img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add some border radius for a nicer look */
 }

@@ -104,6 +104,11 @@ io.on("connection", (socket) => {
     client.publish("direction", message);
   });
 
+  socket.on('stop', (message) => {
+    console.log('Received direction message from frontend:', message);
+    client.publish("stop", message);
+  });
+
   // Listen for arm value messages from the frontend
   socket.on('send-arm-value', (message) => {
     console.log('Received arm value message from frontend:', message);
